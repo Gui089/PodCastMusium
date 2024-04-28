@@ -6,12 +6,14 @@ const palette = {
     secondaryBlue: '#44D7DD',
     thereBlue: '#00C2CB',
     lightBlue: '#A6F3FF',
+    grayWhite:'#FFF',
     grayBlue: '#446266'
 }
 
 export const theme = createTheme({
   colors: {
     primaryButton: palette.primrayBlue,
+    grayWhite: palette.grayWhite
   },
   spacing:{
     s4:4,
