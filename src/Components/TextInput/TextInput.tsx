@@ -1,5 +1,5 @@
-import React from "react";
-import { TextInput as RNTextInput, TextInputProps as RNTextInputProps, Text, View } from "react-native";
+import React, { useRef } from "react";
+import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps, Text, View } from "react-native";
 import Box from "../Box/Box";
 import { IconComponent, IconNames } from "../Icon/Icon";
 
@@ -11,8 +11,15 @@ interface TextInputProps extends RNTextInputProps {
 
 export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
 
+    const formRef = useRef<any>(null);
+
+    const focusInput = () => {
+        formRef.current.focus();
+    }
+
     return (
-        <View>
+        <Pressable onPress={focusInput}>
+            <View>
             <Box
                 alignSelf="center"
                 width={370}
@@ -25,11 +32,13 @@ export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
                 >
                     {leftIcon && <IconComponent name={leftIcon} />}
                 <RNTextInput
-                    style={{borderWidth:0.8, borderColor: 'gray', paddingHorizontal:15}}
+                    ref={formRef}
+                    style={{borderColor: '#DBE7E8', paddingHorizontal:15, marginLeft:10}}
                     placeholderTextColor={'white'}
                     placeholder={title}>
                 </RNTextInput>
             </Box>
         </View>
+        </Pressable>
     )
 }

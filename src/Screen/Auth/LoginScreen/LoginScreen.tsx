@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput } from '../../../Components/TextInput/TextInput';
 import { Image, Text, View } from 'react-native';
+import { RNButton } from '../../../Components/Button/Button';
 
 export const LoginScreen = () => {
     return (
@@ -32,7 +33,14 @@ export const LoginScreen = () => {
                 title='E-mail'
                 />
             <TextInput 
+                leftIcon='LockIcon'
                 title='Password' 
+                />
+            <RNButton 
+                alignSelf='center'
+                height={60} 
+                width={370} 
+                title='Login' 
                 />
         </View>
     )
