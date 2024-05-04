@@ -1,10 +1,16 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, StatusBar, Text, View } from "react-native";
 import { RNButton } from "../../../Components/Button/Button";
 
-export const SignUpScreen = () => {
+export const SignUpScreen = ({navigation}) => {
+
+  const gotToLoginScreen = () => {
+    navigation.navigate('LoginScreen');
+  }
+
     return (
         <View style={{flex:1, backgroundColor: 'black'}}>
+        <StatusBar backgroundColor={'black'}/>
         <Image style={{alignSelf:'center', marginTop:40}} source={require('../../../assets/img/musiumLogo.png')}/>
         <Text style={{color:'white', alignSelf:'center', fontSize:42, fontWeight:'bold'}}>Let’s get you in</Text>
         <RNButton 
@@ -43,7 +49,9 @@ export const SignUpScreen = () => {
         <RNButton 
         marginTop='s80'
         marginBottom='s4' 
-        title='log in with a password' />
+        title='log in with a password' 
+        onPress={gotToLoginScreen}
+        />
         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:10}}>
           <Text style={{color:'white'}}>Don't have an account?</Text>
           <Text style={{color:'#7CEEFF', marginLeft:5}}>Sign Up</Text>

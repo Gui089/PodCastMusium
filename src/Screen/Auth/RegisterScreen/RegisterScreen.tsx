@@ -1,15 +1,10 @@
-import React from 'react';
-import { TextInput } from '../../../Components/TextInput/TextInput';
-import { Image, StatusBar, Text, View } from 'react-native';
-import { RNButton } from '../../../Components/Button/Button';
-import Box, { TouchableOpacityBox } from '../../../Components/Box/Box';
+import React from "react";
+import { Image, StatusBar, Text, View } from "react-native";
+import { TextInput } from "../../../Components/TextInput/TextInput";
+import { RNButton } from "../../../Components/Button/Button";
+import Box from "../../../Components/Box/Box";
 
-export const LoginScreen = ({navigation}) => {
-
-    const goToRegister = () => {
-        navigation.navigate('RegisterScreen');
-    }
-
+export const RegisterScreen= () => {
     return (
         <View 
             style={{
@@ -21,7 +16,7 @@ export const LoginScreen = ({navigation}) => {
             <Image 
                 style={{
                     alignSelf:"center", 
-                    marginTop:40}} 
+                    marginTop:0}} 
                 source={require('../../../assets/img/musiumLogo.png')}
                 />
             <Text 
@@ -33,16 +28,18 @@ export const LoginScreen = ({navigation}) => {
                     fontWeight:'bold'
                 }}
                     >
-                Login to your account
+                Register your account
             </Text>
-            <TextInput
-                leftIcon='MailIcon' 
-                title='E-mail'
-                />
+
             <TextInput 
-                leftIcon='LockIcon'
-                title='Password' 
+                title='Username' 
                 />
+            <TextInput
+                title="Email"
+            />
+            <TextInput
+                title="password"
+             />
             <RNButton 
                 alignSelf='center'
                 height={60} 
@@ -63,21 +60,18 @@ export const LoginScreen = ({navigation}) => {
             >
                 Don’t have an account? 
             </Text>
-            <TouchableOpacityBox onPress={goToRegister}>
-                <Text
-                    style={{
-                        color:'#7CEEFF',
-                        alignSelf:'center',
-                        marginTop:20,
-                        fontSize:18,
-                        marginLeft:5
-                    }}
-                >
-                    SignUp
-                </Text>
-            </TouchableOpacityBox>
+            <Text
+                style={{
+                    color:'#7CEEFF',
+                    alignSelf:'center',
+                    marginTop:20,
+                    fontSize:18,
+                    marginLeft:5
+                }}
+            >
+                SignUp
+            </Text>
             </Box>
         </View>
     )
 }
-

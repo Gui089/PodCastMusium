@@ -3,7 +3,12 @@ import { Image, StatusBar, Text, View } from "react-native";
 import { RNButton } from "../../../Components/Button/Button";
 
 
-export const GetStartedScreen = () => {
+export const GetStartedScreen = ({navigation}) => {
+
+    const gotToSignScreen = () => {
+        navigation.navigate('SignUpScreen');
+    }
+
     return (
         <View style={{flex:1, backgroundColor:'#41C3D6'}}>
             <StatusBar backgroundColor={'#41C3D6'}/>
@@ -38,6 +43,7 @@ export const GetStartedScreen = () => {
                     marginTop="s12"
                     height={60} 
                     width={370}
+                    onPress={gotToSignScreen}
                 />
             </View>
         </View>
