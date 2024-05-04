@@ -2,6 +2,7 @@ import React from 'react';
 import { TextInput } from '../../../Components/TextInput/TextInput';
 import { Image, Text, View } from 'react-native';
 import { RNButton } from '../../../Components/Button/Button';
+import Box from '../../../Components/Box/Box';
 
 export const LoginScreen = () => {
     return (
@@ -40,8 +41,34 @@ export const LoginScreen = () => {
                 alignSelf='center'
                 height={60} 
                 width={370} 
-                title='Login' 
+                title='Login'
                 />
+            <Box 
+                alignItems='center' 
+                justifyContent='center' 
+                flexDirection='row'>
+            <Text
+                style={{
+                    color:'white',
+                    alignSelf:'center',
+                    marginTop:20,
+                    fontSize:18
+                }}
+            >
+                Don’t have an account? 
+            </Text>
+            <Text
+                style={{
+                    color:'#7CEEFF',
+                    alignSelf:'center',
+                    marginTop:20,
+                    fontSize:18,
+                    marginLeft:5
+                }}
+            >
+                SignUp
+            </Text>
+            </Box>
         </View>
     )
 }

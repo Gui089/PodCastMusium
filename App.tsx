@@ -11,13 +11,15 @@ import {StatusBar} from 'react-native';
 import { theme } from './src/Theme/Theme';
 import { SignUpScreen } from './src/Screen/Auth/SignUpScreen/SignUpScreen';
 import { LoginScreen } from './src/Screen/Auth/LoginScreen/LoginScreen';
+import { GetStartedScreen } from './src/Screen/app/GetStartedScreen/GetStartedScreen';
 
 export default function App(): React.JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar backgroundColor='black'/>
         {/* <SignUpScreen /> */}
-        <LoginScreen />
+       {/*  <LoginScreen /> */}
+       <GetStartedScreen />
     </ThemeProvider>
   );
 }
