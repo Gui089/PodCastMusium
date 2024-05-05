@@ -3,6 +3,7 @@ import { EyeOffIcon } from "../../assets/Icons/EyeOff";
 import { LockIcon } from "../../assets/Icons/LockIcon";
 import { MailIcon } from "../../assets/Icons/MailIcon";
 import { View } from "react-native";
+import { LeftIcon } from "../../assets/Icons/LeftIcon";
 
 
 interface Props {
@@ -15,7 +16,7 @@ export const IconComponent = ({name}: Props) => {
 
     return (
         <View style={{alignSelf:'flex-start',position:'absolute', marginTop:30, marginLeft:20}}>
-              <IconSvg/>
+            <IconSvg/>
         </View>
     )
 }
@@ -23,7 +24,8 @@ export const IconComponent = ({name}: Props) => {
 const iconRegistry = {
     eyeOff: EyeOffIcon,
     LockIcon: LockIcon,
-    MailIcon: MailIcon
+    MailIcon: MailIcon,
+    leftIcon: LeftIcon
 }
 
 type IconType = typeof iconRegistry;

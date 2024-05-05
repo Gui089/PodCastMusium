@@ -1,10 +1,15 @@
 import React from "react";
-import { Image, StatusBar, Text, View } from "react-native";
+import { Image, Pressable, StatusBar, Text, View } from "react-native";
 import { TextInput } from "../../../Components/TextInput/TextInput";
 import { RNButton } from "../../../Components/Button/Button";
-import Box from "../../../Components/Box/Box";
+import { IconComponent } from "../../../Components/Icon/Icon";
 
-export const RegisterScreen= () => {
+export const RegisterScreen= ({navigation}) => {
+
+    const goBackNavigation = () => {
+        navigation.goBack();
+    }
+
     return (
         <View 
             style={{
@@ -13,6 +18,11 @@ export const RegisterScreen= () => {
                 }}
                 >
                     <StatusBar backgroundColor={'black'}/>
+
+                <Pressable onPress={goBackNavigation} hitSlop={10}>
+                    <IconComponent name="leftIcon" />                
+                </Pressable>
+
             <Image 
                 style={{
                     alignSelf:"center", 
@@ -46,32 +56,6 @@ export const RegisterScreen= () => {
                 width={370} 
                 title='Login'
                 />
-            <Box 
-                alignItems='center' 
-                justifyContent='center' 
-                flexDirection='row'>
-            <Text
-                style={{
-                    color:'white',
-                    alignSelf:'center',
-                    marginTop:20,
-                    fontSize:18
-                }}
-            >
-                Don’t have an account? 
-            </Text>
-            <Text
-                style={{
-                    color:'#7CEEFF',
-                    alignSelf:'center',
-                    marginTop:20,
-                    fontSize:18,
-                    marginLeft:5
-                }}
-            >
-                SignUp
-            </Text>
-            </Box>
         </View>
     )
 }
