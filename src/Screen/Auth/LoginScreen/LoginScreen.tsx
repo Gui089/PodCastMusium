@@ -1,13 +1,18 @@
 import React from 'react';
 import { TextInput } from '../../../Components/TextInput/TextInput';
-import { Image, StatusBar, Text, View } from 'react-native';
+import { Image, Pressable, StatusBar, Text, View } from 'react-native';
 import { RNButton } from '../../../Components/Button/Button';
 import Box, { TouchableOpacityBox } from '../../../Components/Box/Box';
+import { IconComponent } from '../../../Components/Icon/Icon';
 
 export const LoginScreen = ({navigation}) => {
 
     const goToRegister = () => {
         navigation.navigate('RegisterScreen');
+    }
+
+    const goBack = () => {
+        navigation.goBack();
     }
 
     return (
@@ -18,6 +23,11 @@ export const LoginScreen = ({navigation}) => {
                 }}
                 >
                     <StatusBar backgroundColor={'black'}/>
+            
+            <Pressable hitSlop={10} onPress={goBack}>
+                <IconComponent name='leftIcon' />
+            </Pressable>
+
             <Image 
                 style={{
                     alignSelf:"center", 
@@ -39,7 +49,8 @@ export const LoginScreen = ({navigation}) => {
                 leftIcon='MailIcon' 
                 title='E-mail'
                 />
-            <TextInput 
+            <TextInput
+                
                 leftIcon='LockIcon'
                 title='Password' 
                 />

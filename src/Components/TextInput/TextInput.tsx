@@ -33,7 +33,7 @@ export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
                     {leftIcon && <IconComponent name={leftIcon} />}
                 <RNTextInput
                     ref={formRef}
-                    style={{borderColor: '#DBE7E8', paddingHorizontal:15, marginLeft:10}}
+                    style={{borderColor: '#DBE7E8', paddingHorizontal:15, marginLeft:10, color:'white'}}
                     placeholderTextColor={'white'}
                     placeholder={title}>
                 </RNTextInput>

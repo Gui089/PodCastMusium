@@ -1,11 +1,15 @@
 import React from "react";
-import { Image, StatusBar, Text, View } from "react-native";
+import { Image, Pressable, StatusBar, Text, View } from "react-native";
 import { RNButton } from "../../../Components/Button/Button";
 
 export const SignUpScreen = ({navigation}) => {
 
-  const gotToLoginScreen = () => {
+  const goToLoginScreen = () => {
     navigation.navigate('LoginScreen');
+  }
+
+  const goToSignUpScreen = () => {
+    navigation.navigate('RegisterScreen');
   }
 
     return (
@@ -50,11 +54,15 @@ export const SignUpScreen = ({navigation}) => {
         marginTop='s80'
         marginBottom='s4' 
         title='log in with a password' 
-        onPress={gotToLoginScreen}
+        onPress={goToLoginScreen}
         />
         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:10}}>
-          <Text style={{color:'white'}}>Don't have an account?</Text>
-          <Text style={{color:'#7CEEFF', marginLeft:5}}>Sign Up</Text>
+          <Text style={{fontSize:18,color:'white'}}>Don't have an account?</Text>
+
+          <Pressable hitSlop={10} onPress={goToSignUpScreen}>
+            <Text style={{fontSize:18,color:'#7CEEFF', marginLeft:5}}>Sign Up</Text>
+          </Pressable>
+
         </View>
       </View>
     )
