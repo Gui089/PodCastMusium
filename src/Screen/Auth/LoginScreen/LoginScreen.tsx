@@ -4,8 +4,11 @@ import { Image, Pressable, StatusBar, Text, View } from 'react-native';
 import { RNButton } from '../../../Components/Button/Button';
 import Box, { TouchableOpacityBox } from '../../../Components/Box/Box';
 import { IconComponent } from '../../../Components/Icon/Icon';
+import { RootStackParamList } from '../../../routes/routes';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export const LoginScreen = ({navigation}) => {
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
+export const LoginScreen = ({navigation}: LoginScreenProps) => {
 
     const goToRegister = () => {
         navigation.navigate('RegisterScreen');

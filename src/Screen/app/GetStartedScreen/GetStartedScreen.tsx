@@ -1,9 +1,11 @@
 import React from "react";
 import { Image, StatusBar, Text, View } from "react-native";
 import { RNButton } from "../../../Components/Button/Button";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../routes/routes";
 
-
-export const GetStartedScreen = ({navigation}) => {
+type GetStartedScreenProps = NativeStackScreenProps<RootStackParamList, 'GetStartedScreen'>
+export const GetStartedScreen = ({navigation}: GetStartedScreenProps) => {
 
     const gotToSignScreen = () => {
         navigation.navigate('SignUpScreen');

@@ -6,7 +6,14 @@ import { LoginScreen } from "../Screen/Auth/LoginScreen/LoginScreen";
 import { SignUpScreen } from "../Screen/Auth/SignUpScreen/SignUpScreen";
 import { RegisterScreen } from "../Screen/Auth/RegisterScreen/RegisterScreen";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+    LoginScreen: undefined,
+    SignUpScreen: undefined,
+    RegisterScreen: undefined,
+    GetStartedScreen: undefined
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RoutesContainer = () => {
     return (
