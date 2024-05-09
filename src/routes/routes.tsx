@@ -5,6 +5,7 @@ import { GetStartedScreen } from "../Screen/app/GetStartedScreen/GetStartedScree
 import { LoginScreen } from "../Screen/Auth/LoginScreen/LoginScreen";
 import { SignUpScreen } from "../Screen/Auth/SignUpScreen/SignUpScreen";
 import { RegisterScreen } from "../Screen/Auth/RegisterScreen/RegisterScreen";
+import { AppStack } from "./AppStack";
 
 export type RootStackParamList = {
     LoginScreen: undefined,
@@ -16,8 +17,14 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RoutesContainer = () => {
+
+    const isAutenticated = true;
+
     return (
         <NavigationContainer>
+
+            {isAutenticated ? <AppStack /> : (
+
             <Stack.Navigator 
                 initialRouteName="GetStartedScreen"
                 screenOptions={{
@@ -29,6 +36,7 @@ export const RoutesContainer = () => {
                 <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
                 <Stack.Screen name="RegisterScreen" component={RegisterScreen}/>
             </Stack.Navigator>
+            )}
         </NavigationContainer>
     )
 }

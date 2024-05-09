@@ -14,7 +14,6 @@ import { RoutesContainer } from './src/routes/routes';
 export default function App(): React.JSX.Element {
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar backgroundColor='black'/>
         <RoutesContainer />
     </ThemeProvider>
   );
