@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View} from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
+import { HeaderHome } from "../Components/HeaderHome/HeaderHome";
 
 export const HomeScreen = () => {
     return (
@@ -12,16 +13,7 @@ export const HomeScreen = () => {
             locations={[0.01,0.1,0.4]}
             style={styles.container}
         >
-            <View style={{
-                borderRadius:100,
-                backgroundColor:'#00DBFC',
-                alignItems:'center',
-                justifyContent:'center',
-                width:50,
-                height:50
-            }}>
-                <Image style={{height:43, width:43, borderRadius:100}} source={require('../../../assets/img/gui02.jpg')}/>
-            </View>
+            <HeaderHome />
         </LinearGradient>
         </>
     )
