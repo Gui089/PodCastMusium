@@ -1,8 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { AppTabNavigator } from "./AppTabNav";
+import { AppTabBottomTabParams, AppTabNavigator } from "./AppTabNav";
+import { NavigatorScreenParams } from "@react-navigation/native";
 
-const Stack = createNativeStackNavigator();
+export type AppStackParams = {
+    AppTabNavigator: NavigatorScreenParams<AppTabBottomTabParams>
+}
+
+const Stack = createNativeStackNavigator<AppStackParams>();
 
 export const AppStack = () => {
     return (

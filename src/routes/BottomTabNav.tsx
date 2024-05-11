@@ -1,17 +1,16 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { AppIconBottom } from './AppIconTypes';
+import { AppTabBottomTabParams } from './AppTabNav';
+import { IconComponent } from '../Components/Icon/Icon';
 
 export function MyTabBar({ state, descriptors, navigation }:BottomTabBarProps) {
   return (
     <View style={{ flexDirection: 'row', backgroundColor:'black',}}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const label =
-          options.tabBarLabel !== undefined
-            ? options.tabBarLabel
-            : options.title !== undefined
-            ? options.title
-            : route.name;
+        
+        const tabItem = AppIconBottom[route.name as keyof AppTabBottomTabParams];
 
         const isFocused = state.index === index;
 
@@ -36,17 +35,19 @@ export function MyTabBar({ state, descriptors, navigation }:BottomTabBarProps) {
 
         return (
           <TouchableOpacity
+            hitSlop={10}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1, alignItems:'center', marginBottom:15}}
+            style={{ flex: 1, justifyContent:'center', alignItems:'center', marginBottom:15}}
 
         >
+            <IconComponent style={{paddingBottom:40, alignSelf:'center'}} name={tabItem.icon} color={isFocused ? '#00C2CB' : undefined}/>
             <Text style={{ color: isFocused ? '#00C2CB' : 'white' }}>
-              {label}
+              {tabItem.label}
             </Text>
           </TouchableOpacity>
         );

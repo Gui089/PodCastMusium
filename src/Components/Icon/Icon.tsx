@@ -7,20 +7,24 @@ import { LeftIcon } from "../../assets/Icons/LeftIcon";
 import { BarIcon } from "../../assets/Icons/BarIcon";
 import { BellIcon } from "../../assets/Icons/BellIcon";
 import { SettingsIcon } from "../../assets/Icons/SettingsIcon";
+import { HomeIcon } from "../../assets/Icons/HomeIcon";
+import { SearchIcon } from "../../assets/Icons/SearchIcon";
+import { FolderIcon } from "../../assets/Icons/FolderIcon";
 
 
-interface Props {
+export interface IconProps {
     name: IconNames;
     style?: ViewStyle;
+    color?: string;
 }
 
-export const IconComponent = ({name, style}: Props) => {
+export const IconComponent = ({name, style, color}: IconProps) => {
 
     const IconSvg = iconRegistry[name];
 
     return (
         <View style={[{alignSelf:'flex-start',position:'absolute', marginTop:30, marginLeft:20},{...style}]}>
-            <IconSvg/>
+            <IconSvg color={color} />
         </View>
     )
 }
@@ -32,7 +36,10 @@ const iconRegistry = {
     leftIcon: LeftIcon,
     barIcon: BarIcon,
     bellIcon: BellIcon,
-    settingsIcon: SettingsIcon
+    settingsIcon: SettingsIcon,
+    homeIcon: HomeIcon,
+    searchIcon: SearchIcon,
+    folderIcon: FolderIcon
 }
 
 type IconType = typeof iconRegistry;
