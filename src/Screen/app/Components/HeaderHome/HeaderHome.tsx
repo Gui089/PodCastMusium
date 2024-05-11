@@ -43,8 +43,8 @@ export const HeaderHome = () => {
 
             <Box justifyContent="center" ml='s50'>
                 <IconComponent style={{marginLeft:0}} name="barIcon" />
-                <IconComponent style={{marginLeft:27}} name="bellIcon" />
-                <IconComponent style={{marginLeft:58}} name="settingsIcon"/>
+                <IconComponent style={{marginLeft:35}} name="bellIcon" />
+                <IconComponent style={{marginLeft:74}} name="settingsIcon"/>
             </Box>
                 
         </Box>
