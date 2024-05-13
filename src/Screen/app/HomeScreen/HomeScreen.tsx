@@ -48,6 +48,17 @@ export const HomeScreen = () => {
                 renderItem={listRender}
                 numColumns={2}
             />
+            <Text 
+                style={{
+                    fontWeight: 'bold',
+                    fontSize:22,
+                    color:'white',
+                    marginTop:34,
+                    marginLeft:29
+                }}
+            >
+                Your top Mixes
+            </Text>
         </LinearGradient>
         </ScrollView>
     )

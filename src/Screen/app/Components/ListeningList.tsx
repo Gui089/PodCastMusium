@@ -6,7 +6,7 @@ import Box from "../../../Components/Box/Box";
 type Props = Pick<Listening, 'genre' | 'imageUrl'>
 export const ListeningList = ({genre, imageUrl}: Props) => {
     return (
-        <Box padding="s8" ml="s4" mt="s8">
+        <Box ml="s14" mt="s8">
             <TouchableOpacity
                 style={{
                 backgroundColor:'#1D2728',
