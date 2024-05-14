@@ -6,15 +6,30 @@ import { ListeningList } from "../Components/ListeningList";
 import { ListeningService } from "../../../domain/Listening/ListeningService";
 import { Listening } from "../../../domain/Listening/listeningType";
 import { ScrollView } from "react-native";
+import { TopMixes } from "../../../domain/TopMixes/TopMixesTypes";
+import { TopMixesService } from "../../../domain/TopMixes/TopMixesService";
+import { TopMixesComponent } from "../Components/TopMixes";
 
 
 export const HomeScreen = () => {
 
     const [genre, setGenre] = useState<Listening[]>([]);
+    const [mixes, setMixes] = useState<TopMixes[]>([]);
 
     useEffect(() => {
-        ListeningService.serviceGetList().then((list) => setGenre(list))
+        ListeningService.serviceGetList().then((list) => setGenre(list));
     });
+
+    useEffect(() => {
+        TopMixesService.getTopMixesService().then((mix) => setMixes(mix));
+    });
+
+    const mixRender: ListRenderItem<TopMixes> = ({item}) => {
+        return (
+            <TopMixesComponent {...item}/>
+        )
+    }
+
 
     const listRender: ListRenderItem<Listening> = ({ item }) => {
         return (
@@ -59,6 +74,12 @@ export const HomeScreen = () => {
             >
                 Your top Mixes
             </Text>
+            <FlatList
+                data={mixes}
+                keyExtractor={(item) => item.id}
+                renderItem={mixRender}
+                horizontal
+            />
         </LinearGradient>
         </ScrollView>
     )
