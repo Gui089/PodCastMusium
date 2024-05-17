@@ -9,12 +9,16 @@ import { ScrollView } from "react-native";
 import { TopMixes } from "../../../domain/TopMixes/TopMixesTypes";
 import { TopMixesService } from "../../../domain/TopMixes/TopMixesService";
 import { TopMixesComponent } from "../Components/TopMixes";
+import { RecentListeningTypes } from "../../../domain/RecentListening/RecentListeningTypes";
+import { RecentListeningService } from "../../../domain/RecentListening/RecentListeningService";
+import { RecentListening } from "../Components/RecentListening";
 
 
 export const HomeScreen = () => {
 
     const [genre, setGenre] = useState<Listening[]>([]);
     const [mixes, setMixes] = useState<TopMixes[]>([]);
+    const [recentListening, setRecentListening] = useState<RecentListeningTypes[]>([]);
 
     useEffect(() => {
         ListeningService.serviceGetList().then((list) => setGenre(list));
@@ -22,6 +26,10 @@ export const HomeScreen = () => {
 
     useEffect(() => {
         TopMixesService.getTopMixesService().then((mix) => setMixes(mix));
+    });
+
+    useEffect(() => {
+        RecentListeningService.getRecentListeningService().then((item) => setRecentListening(item));
     });
 
     const mixRender: ListRenderItem<TopMixes> = ({item}) => {
@@ -36,6 +44,13 @@ export const HomeScreen = () => {
             <ListeningList {...item} />
         )
     }
+
+    const recentListeningRender: ListRenderItem<RecentListeningTypes> = ({item}) => {
+        return (
+            <RecentListening {...item}/>
+        )
+    }
+
 
     return (
         <ScrollView style={{flex:1, backgroundColor:'black'}}>
@@ -92,6 +107,13 @@ export const HomeScreen = () => {
             >
                 Based on your recent listening
             </Text>
+            <FlatList
+                data={recentListening}
+                keyExtractor={(item) => item.id}
+                renderItem={recentListeningRender}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            />
         </LinearGradient>
         </ScrollView>
     )

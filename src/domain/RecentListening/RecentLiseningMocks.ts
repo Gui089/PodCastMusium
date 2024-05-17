@@ -5,12 +5,12 @@ export const RecentListeningData: RecentListeningTypes[] = [
     {
         id: '1',
         title:'Classic',
-        imageUrl:''
+        imageUrl:'https://raw.githubusercontent.com/Gui089/PodCastMusium/main/src/assets/img/RecentListening/No%20time%20to%20die%20Pic%204%20(1).png'
     },
     {
         id: '2',
         title:'Pop',
-        imageUrl:''
+        imageUrl:'https://raw.githubusercontent.com/Gui089/PodCastMusium/main/src/assets/img/RecentListening/Rectangle%2031.png'
     },
     {
         id: '3',
