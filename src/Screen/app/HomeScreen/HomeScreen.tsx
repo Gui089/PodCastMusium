@@ -79,7 +79,19 @@ export const HomeScreen = () => {
                 keyExtractor={(item) => item.id}
                 renderItem={mixRender}
                 horizontal
+                showsHorizontalScrollIndicator={false}
             />
+            <Text 
+                style={{
+                    fontWeight: 'bold',
+                    fontSize:22,
+                    color:'white',
+                    marginTop:34,
+                    marginLeft:29
+                }}
+            >
+                Based on your recent listening
+            </Text>
         </LinearGradient>
         </ScrollView>
     )
