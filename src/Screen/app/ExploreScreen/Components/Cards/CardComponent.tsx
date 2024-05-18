@@ -16,7 +16,9 @@ export const CardComponent = ({imageUrl, cardColor, title}: Props) => {
             style={{
                 backgroundColor: cardColor,
                 borderRadius:4,
-                margin:25
+                marginRight:10,
+                marginLeft:20,
+                marginTop:20
             }}
         > 
             <Text

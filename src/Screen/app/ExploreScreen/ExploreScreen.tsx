@@ -1,11 +1,27 @@
-import React from "react";
-import { ScrollView, Text} from "react-native";
+import React, { useEffect, useState } from "react";
+import { FlatList, ListRenderItem, ScrollView, Text} from "react-native";
 import {LinearGradient} from 'react-native-linear-gradient';
 import { ExploreSearch } from "./Components/ExploreSearch";
+import { TopGenreTypes } from "../../../domain/TopGenre/TopGenreTypes";
+import { TopGenreService } from "../../../domain/TopGenre/TopGenreService";
 import { CardComponent } from "./Components/Cards/CardComponent";
 
 
+
 export const ExploreScreen = () => {
+
+    const [topGenre, setTopGenre] = useState<TopGenreTypes[]>([]);
+
+    useEffect(() => {
+        TopGenreService.getTopGenreService().then((item) => setTopGenre(item));
+    }, [topGenre]);
+
+    const renderTopGenre: ListRenderItem<TopGenreTypes> = ({item}) => {
+        return (
+            <CardComponent {...item}/>
+        )
+    }
+
     return (
         <ScrollView style={{backgroundColor:'black', flex:1}}>
             <LinearGradient
@@ -40,7 +56,12 @@ export const ExploreScreen = () => {
                 Your Top Genres
             </Text>
 
-            <CardComponent title="Kpop" cardColor="#75C922" imageUrl="https://raw.githubusercontent.com/Gui089/PodCastMusium/main/src/assets/img/TopGenres/image%204.png"/>
+            <FlatList
+                data={topGenre}
+                keyExtractor={(item) => item.id}
+                renderItem={renderTopGenre}
+                numColumns={2}
+            />
             </LinearGradient>
         </ScrollView>
     )
