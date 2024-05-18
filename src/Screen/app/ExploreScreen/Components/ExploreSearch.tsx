@@ -32,7 +32,6 @@ export const ExploreSearch = () => {
                     alignSelf:'center',
                 }}
             >
-
             </TextInput>
         </Box>
     )
