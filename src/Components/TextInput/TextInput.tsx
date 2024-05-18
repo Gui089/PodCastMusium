@@ -9,7 +9,7 @@ interface TextInputProps extends RNTextInputProps {
     rightIcon?: IconNames;
 }
 
-export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
+export const TextInput = ({title, leftIcon,rightIcon,style }: TextInputProps) => {
 
     const formRef = useRef<any>(null);
 
@@ -19,7 +19,7 @@ export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
 
     return (
         <Pressable onPress={focusInput}>
-            <View>
+            <View >
             <Box
                 alignSelf="center"
                 width={370}
@@ -29,11 +29,12 @@ export const TextInput = ({title, leftIcon,rightIcon }: TextInputProps) => {
                 borderRadius="s16"
                 borderColor="grayWhite"
                 borderWidth={0.8}
+                
                 >
                     {leftIcon && <IconComponent name={leftIcon} />}
                 <RNTextInput
                     ref={formRef}
-                    style={{borderColor: '#DBE7E8', paddingHorizontal:15, marginLeft:10, color:'white'}}
+                    style={[{borderColor: '#DBE7E8', paddingHorizontal:15, marginLeft:10, color:'white'}, style]}
                     placeholderTextColor={'white'}
                     placeholder={title}>
                 </RNTextInput>

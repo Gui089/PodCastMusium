@@ -6,7 +6,11 @@ import { IconComponent } from '../Components/Icon/Icon';
 
 export function MyTabBar({ state, descriptors, navigation }:BottomTabBarProps) {
   return (
-    <View style={{ flexDirection: 'row', backgroundColor:'black', height:90}}>
+    <View style={{ 
+        flexDirection: 'row', 
+        backgroundColor:'black', 
+        height:90,
+        }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         

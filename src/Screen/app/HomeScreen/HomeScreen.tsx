@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  FlatList, ListRenderItem, ListRenderItemInfo, StyleSheet, Text } from "react-native";
+import {  FlatList, ListRenderItem, StyleSheet, Text } from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
 import { HeaderHome } from "../Components/HeaderHome/HeaderHome";
 import { ListeningList } from "../Components/ListeningList";
@@ -59,7 +59,6 @@ export const HomeScreen = () => {
             start={{x: 0, y: 0}}
             end={{x: 0.0, y:1}}
             locations={[0.01,0.1,0.6]}
-            style={styles.container}
         >
             <HeaderHome />
             <Text 
@@ -118,9 +117,3 @@ export const HomeScreen = () => {
         </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        
-    },
-})
