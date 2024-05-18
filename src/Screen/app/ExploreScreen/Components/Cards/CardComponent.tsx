@@ -1,13 +1,10 @@
 import React from "react";
 import Box from "../../../../../Components/Box/Box";
 import { Image, Text } from "react-native";
+import { TopGenreTypes } from "../../../../../domain/TopGenre/TopGenreTypes";
 
 
-type Props = { 
-    imageUrl: string;
-    cardColor: string;
-    title: string;
-}
+type Props = Pick<TopGenreTypes, 'title' | 'cardColor'| 'imageUrl'>
 export const CardComponent = ({imageUrl, cardColor, title}: Props) => {
     return (
         <Box
