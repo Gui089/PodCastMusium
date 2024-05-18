@@ -40,7 +40,7 @@ export const ExploreScreen = () => {
                 Your Top Genres
             </Text>
 
-            <CardComponent cardColor="#75C922" imageUrl="jadfiaj"/>
+            <CardComponent title="Kpop" cardColor="#75C922" imageUrl="https://raw.githubusercontent.com/Gui089/PodCastMusium/main/src/assets/img/TopGenres/image%204.png"/>
             </LinearGradient>
         </ScrollView>
     )
