@@ -11,12 +11,23 @@ import { CardComponent } from "./Components/Cards/CardComponent";
 export const ExploreScreen = () => {
 
     const [topGenre, setTopGenre] = useState<TopGenreTypes[]>([]);
+    const [allGenre, setAllGenre] = useState<TopGenreTypes[]>([]);
 
     useEffect(() => {
         TopGenreService.getTopGenreService().then((item) => setTopGenre(item));
     }, [topGenre]);
 
+    useEffect(() => {
+        TopGenreService.getAllGenresService().then((item) => setAllGenre(item));
+    }, [allGenre]);
+
     const renderTopGenre: ListRenderItem<TopGenreTypes> = ({item}) => {
+        return (
+            <CardComponent {...item}/>
+        )
+    }
+
+    const renderAllGenre: ListRenderItem<TopGenreTypes> = ({item}) => {
         return (
             <CardComponent {...item}/>
         )
@@ -62,6 +73,26 @@ export const ExploreScreen = () => {
                 renderItem={renderTopGenre}
                 numColumns={2}
             />
+
+            <Text 
+                style={{
+                    fontWeight: 'bold',
+                    fontSize:20,
+                    color:'white',
+                    marginTop:34,
+                    marginLeft:35
+                }}
+            >
+                Browse All
+            </Text>
+
+            <FlatList
+                data={allGenre}
+                keyExtractor={(item) => item.id}
+                renderItem={renderAllGenre}
+                numColumns={2}
+            />
+
             </LinearGradient>
         </ScrollView>
     )

@@ -1,4 +1,4 @@
-import { TopGenreApi } from "./TopGenreApi"
+import { TopGenreApi} from "./TopGenreApi"
 
 
 export const getTopGenreService = async () => {
@@ -6,6 +6,12 @@ export const getTopGenreService = async () => {
     return response;
 }
 
+export const getAllGenresService = async () => {
+    const response = await TopGenreApi.getAllGenres();
+    return response;
+}
+
 export const TopGenreService = {
     getTopGenreService,
+    getAllGenresService
 }
