@@ -16,15 +16,17 @@ export interface IconProps {
     name: IconNames;
     style?: ViewStyle;
     color?: string;
+    width?: number;
+    height?: number;
 }
 
-export const IconComponent = ({name, style, color}: IconProps) => {
+export const IconComponent = ({name, style, color, width, height}: IconProps) => {
 
     const IconSvg = iconRegistry[name];
 
     return (
         <View style={[{alignSelf:'flex-start',position:'absolute', marginTop:30, marginLeft:20},{...style}]}>
-            <IconSvg color={color} />
+            <IconSvg color={color} width={width} height={height}/>
         </View>
     )
 }

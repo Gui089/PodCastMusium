@@ -2,12 +2,12 @@ import React from "react";
 import Svg, { Defs, G, Path, Rect } from "react-native-svg";
 import { IconProps } from "../../Components/Icon/Icon";
 
-type Props = Pick<IconProps, 'color'>
-export const SearchIcon = ({color = 'white'}: Props) => {
+type Props = Pick<IconProps, 'color' | 'width' | 'height'>
+export const SearchIcon = ({color = 'white', width = 21, height = 21}: Props) => {
     return (
         <Svg 
-            width="21" 
-            height="21" 
+            width={width}
+            height={height} 
             viewBox="0 0 21 21" 
             fill="none"
         >
