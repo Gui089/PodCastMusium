@@ -37,10 +37,10 @@ export const FilterLibary = () => {
                 borderRadius="s16"
                 borderWidth={1} 
                 borderColor="grayWhite" 
-                width={73} 
-                height={28}
+                width={78} 
+                height={30}
                 >
-                <Text  style={{color:'white', alignSelf:'center'}}>{item.title}</Text>
+                <Text  style={{color:'#FFFFFF', alignSelf:'center', marginTop:3, fontSize:12}}>{item.title}</Text>
             </Box>
         )
     }
