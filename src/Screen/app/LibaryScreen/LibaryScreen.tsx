@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Image, ScrollView, Text } from "react-native";
 import { HeaderLibary } from "./Components/HeaderLibary";
 import { FilterLibary } from "./Components/Filter";
 import { ButtonUseCase } from "./Components/ButtonUseCase";
 import Box from "../../../Components/Box/Box";
+import { MusicPlayer } from "../Components/MusicPlayer/MusicPlayer";
+
 
 export const LibaryScreen = () => {
+
     return (
         <ScrollView 
             style={{backgroundColor:'black'}}
@@ -34,9 +37,8 @@ export const LibaryScreen = () => {
 
                 }} >
                     Recently played
-                </Text>
+                </Text> 
             </Box>
-
         </ScrollView>
     )
 }

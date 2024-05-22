@@ -6225,6 +6225,11 @@ react-native-svg@^15.2.0:
     css-select "^5.1.0"
     css-tree "^1.1.3"
 
+react-native-video@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-6.1.1.tgz#13e4628fe95677a6b59b68206ec3364301fff5ad"
+  integrity sha512-Cf5A+48QYmOdEK/C77FVakJTees7AGORYgAt9LLKraFqgYMZY8dahVlvjyqWrMKEn+OiA/hIC2ga+XfeCPmexQ==
+
 react-native-windows@0.73.12:
   version "0.73.12"
   resolved "https://registry.yarnpkg.com/react-native-windows/-/react-native-windows-0.73.12.tgz#c94e494ce6bd7b825c929552fb3a143e3eb31635"
