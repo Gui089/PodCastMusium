@@ -1,26 +1,26 @@
 import React from "react";
 import Box from "../../../../Components/Box/Box";
-import { Image, Text } from "react-native";
+import { Image, Pressable, Text } from "react-native";
 
 interface Props {
     imageUrl: string;
     title: string;
     subtitle?: string;
+    onPress: () => void;
 }
-export const RecentPlayed = ({imageUrl, title, subtitle}: Props) => {
+export const RecentPlayed = ({imageUrl, title, subtitle, onPress}: Props) => {
 
     const borderRadiusSpacing = subtitle != null ? 0 : 50;
 
     return (
-        <Box flexDirection="row" mt="s30" ml="s24">
+        <Pressable onPress={onPress}>
 
+        <Box flexDirection="row" mt="s30" ml="s24">
             <Image style={{
                 width:84,
                 height:82,
                 borderRadius:borderRadiusSpacing,
             }} source={{uri: imageUrl}} />
-
-
         <Box justifyContent="center">
             <Text 
                 style={{
@@ -41,5 +41,6 @@ export const RecentPlayed = ({imageUrl, title, subtitle}: Props) => {
             </Text>}
         </Box>
         </Box>
+        </Pressable>
     )
 }

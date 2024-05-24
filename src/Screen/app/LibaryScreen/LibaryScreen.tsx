@@ -5,6 +5,10 @@ import { FilterLibary } from "./Components/Filter";
 import { ButtonUseCase } from "./Components/ButtonUseCase";
 import Box from "../../../Components/Box/Box";
 import { RecentPlayed } from "./Components/RecentPlayed";
+import { AppStackParams } from "../../../routes/AppStack";
+import { AppTabBottomTabParams } from "../../../routes/AppTabNav";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 
 const recentPlayed = [
     {
@@ -14,8 +18,8 @@ const recentPlayed = [
     },
     {
         id: '2',
-        imageUrl: 'https://tse4.mm.bing.net/th?id=OIP.M365aQCxIb7-nTDgIGPYsgHaJQ&pid=Api&P=0&h=180',
-        title: '3:00am vibes',
+        imageUrl: 'https://1.bp.blogspot.com/-CaF5tpMzwsQ/Xai2lVNDiEI/AAAAAAAAfy0/QgOU_yx-bQ0vLujllX-l1TTnw2mYvPh6ACLcBGAsYHQ/s1600/MPB.jpg',
+        title: 'MPB',
         subTitle: '18 songs'
     },
     {
@@ -32,11 +36,16 @@ const recentPlayed = [
     }
 ];
 
-export const LibaryScreen = () => {
+type PlayListScreen = NativeStackScreenProps<AppStackParams, 'PlayListScreen'>
+export const LibaryScreen = ({navigation}: PlayListScreen) => {
+
+    const gotoPlayList = () => {
+        navigation.navigate('PlayListScreen')
+    }
 
     const renderRecentPlayed: ListRenderItem<any> = ({item}) => {
         return (
-            <RecentPlayed imageUrl={item.imageUrl} title={item.title} subtitle={item?.subTitle} />
+            <RecentPlayed onPress={gotoPlayList} imageUrl={item.imageUrl} title={item.title} subtitle={item?.subTitle} />
         )
     }
 
