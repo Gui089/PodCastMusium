@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ScrollView, Text } from "react-native";
+import { ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { PlayListHeader } from "./Components/PlayListHeader";
 
@@ -16,7 +16,7 @@ export const PlayListScreen = () => {
         <ScrollView style={{backgroundColor:'black'}}>
 
         <PlayListHeader  onPress={goBack}/>
-    
+        
 
         </ScrollView>
     )
