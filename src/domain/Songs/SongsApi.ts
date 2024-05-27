@@ -1,5 +1,11 @@
+import { PlayListData } from "./SongsMocks"
 
 
-export const getSongs = () => {
+export const getPlayList = async () => {
+    const response = await PlayListData;
+    return response;
+}
 
+export const PlayListApi = {
+    getPlayList,
 }

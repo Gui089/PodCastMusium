@@ -6,14 +6,15 @@ interface Props {
     imageUrl: string;
     title: string;
     subtitle?: string;
-    onPress: () => void;
+    onPress: (title: string) => void;
 }
 export const RecentPlayed = ({imageUrl, title, subtitle, onPress}: Props) => {
 
     const borderRadiusSpacing = subtitle != null ? 0 : 50;
 
+
     return (
-        <Pressable onPress={onPress}>
+        <Pressable onPress={() => onPress(title)}>
 
         <Box flexDirection="row" mt="s30" ml="s24">
             <Image style={{
@@ -23,6 +24,7 @@ export const RecentPlayed = ({imageUrl, title, subtitle, onPress}: Props) => {
             }} source={{uri: imageUrl}} />
         <Box justifyContent="center">
             <Text 
+                
                 style={{
                     color:'white',
                     fontSize:20,

@@ -6,9 +6,7 @@ import { ButtonUseCase } from "./Components/ButtonUseCase";
 import Box from "../../../Components/Box/Box";
 import { RecentPlayed } from "./Components/RecentPlayed";
 import { AppStackParams } from "../../../routes/AppStack";
-import { AppTabBottomTabParams } from "../../../routes/AppTabNav";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
 
 const recentPlayed = [
     {
@@ -36,55 +34,55 @@ const recentPlayed = [
     }
 ];
 
-type PlayListScreen = NativeStackScreenProps<AppStackParams, 'PlayListScreen'>
-export const LibaryScreen = ({navigation}: PlayListScreen) => {
+type LibaryScreenProps = NativeStackScreenProps<AppStackParams, 'LibaryScreen'>;
 
-    const gotoPlayList = () => {
-        navigation.navigate('PlayListScreen')
-    }
+export const LibaryScreen = ({ navigation }: LibaryScreenProps) => {
 
-    const renderRecentPlayed: ListRenderItem<any> = ({item}) => {
+    const gotoPlayList = (title: string, index: number) => {
+        console.log(`Navigating to playlist with title: ${title} and index: ${index}`);
+        navigation.navigate('PlayListScreen', { title, index });
+    };
+
+    const renderRecentPlayed: ListRenderItem<any> = ({ item, index }) => {
         return (
-            <RecentPlayed onPress={gotoPlayList} imageUrl={item.imageUrl} title={item.title} subtitle={item?.subTitle} />
-        )
-    }
+            <RecentPlayed
+                onPress={() => gotoPlayList(item.title, index)}
+                imageUrl={item.imageUrl}
+                title={item.title}
+                subtitle={item?.subTitle}
+            />
+        );
+    };
 
     return (
-        <ScrollView 
-            style={{backgroundColor:'black'}}
-        >
+        <ScrollView style={{ backgroundColor: 'black' }}>
             <HeaderLibary />
-
             <FilterLibary />
-
-            <ButtonUseCase text="Add New Playlist" title="add"/>
+            <ButtonUseCase text="Add New Playlist" title="add" />
             <ButtonUseCase text="Your Liked Songs" title="favorite" />
-
-            <Box 
-            style={{
-                marginLeft:40,
-                marginTop:34.5,
-                flexDirection:'row',
-                alignItems:'center'
-            }}>
-                <Image  width={17} height={13} source={require('../../../assets/img/sort.png')}/>
-                <Text 
+            <Box
                 style={{
-                    color:'#39C0D4',
-                    fontSize:16,
-                    fontWeight:'bold',
-                    marginLeft:5
-
-                }} >
+                    marginLeft: 40,
+                    marginTop: 34.5,
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}>
+                <Image width={17} height={13} source={require('../../../assets/img/sort.png')} />
+                <Text
+                    style={{
+                        color: '#39C0D4',
+                        fontSize: 16,
+                        fontWeight: 'bold',
+                        marginLeft: 5
+                    }}>
                     Recently played
                 </Text>
-
             </Box>
-                <FlatList
-                    data={recentPlayed}
-                    keyExtractor={(item) => item.id}
-                    renderItem={renderRecentPlayed}
-                />
+            <FlatList
+                data={recentPlayed}
+                keyExtractor={(item) => item.id}
+                renderItem={renderRecentPlayed}
+            />
         </ScrollView>
-    )
-}
+    );
+};
