@@ -53,8 +53,8 @@ export const PlayListData: PlayListTypes[] = [
         id: '2',
         title: 'Wiped Out!',
         artists: 'Djavan, Caetano Veloso, Legião urbana',
-        genre: 'MPB',
-        imageUrl: 'https://1.bp.blogspot.com/-CaF5tpMzwsQ/Xai2lVNDiEI/AAAAAAAAfy0/QgOU_yx-bQ0vLujllX-l1TTnw2mYvPh6ACLcBGAsYHQ/s1600/MPB.jpg',
+        genre: 'Pop',
+        imageUrl: 'https://i.pinimg.com/originals/69/66/22/6966227a142c7d59d777cdd89e1e7311.jpg',
         sounds: [
             {
                 id:'1',

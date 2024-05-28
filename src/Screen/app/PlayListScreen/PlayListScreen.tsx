@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView } from "react-native";
+import { Image, ScrollView, Text } from "react-native";
 import { PlayListHeader } from "./Components/PlayListHeader";
 import { PlayListTypes } from "../../../domain/Songs/SongsTypes";
 import { PlayListService } from "../../../domain/Songs/SongsService";
@@ -26,13 +26,17 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
 
             const uiPlayListMusic = item.filter((playlistItem) => playlistItem.title === playListName);
             setUiPlayList(uiPlayListMusic);
-
-            console.log('Filtered Playlist:', uiPlayListMusic);
-            console.log('Route params title:', route.params.title);
-            console.log('Item index:', playListIndex);
         });
 
     }, [route.params.title, route.params.index]);
+
+    useEffect(() => {
+        if (uiPlayList.length > 0) {
+            console.log('Filtered Playlist:', uiPlayList);
+            console.log('Route params title:', uiPlayList[route.params.index % uiPlayList.length].title);
+            console.log('Item index:', route.params.index);
+        }
+    }, [uiPlayList, route.params.index]);
 
     return (
         <ScrollView style={{ backgroundColor: 'black' }}>
@@ -40,12 +44,42 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
 
             {uiPlayList.length > 0 && (
                 <Image 
-                    style={{ width: 263, height: 252 }} 
+                    style={{
+                        width: 263, 
+                        height: 252, 
+                        alignSelf:'center',
+                        marginTop:36,
+                        borderRadius:4
+                    }} 
                     source={{ uri: uiPlayList[route.params.index % uiPlayList.length]?.imageUrl }} 
                 />
             )}
+
+            <Text
+                style={{
+                    color:'white',
+                    fontSize:34,
+                    fontWeight:'bold',
+                    alignSelf:'center',
+                    marginTop:21
+                }}
+            >
+                {route.params.title}
+            </Text>
+
+            <Text
+                style={{
+                    fontSize:13,
+                    color:'gray',
+                    fontWeight:'bold',
+                    alignSelf:'center'
+                }}
+            >
+                {uiPlayList[route.params.index % uiPlayList.length]?.artists}
+            </Text>
         </ScrollView>
     );
 };
+
 
 
