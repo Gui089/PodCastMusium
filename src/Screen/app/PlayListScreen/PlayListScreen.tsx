@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView, Text } from "react-native";
+import { FlatList, Image, ListRenderItem, ListRenderItemInfo, ScrollView, Text } from "react-native";
 import { PlayListHeader } from "./Components/PlayListHeader";
 import { PlayListTypes } from "../../../domain/Songs/SongsTypes";
 import { PlayListService } from "../../../domain/Songs/SongsService";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AppStackParams } from "../../../routes/AppStack";
+import { MusicPlayer } from "../Components/MusicPlayer/MusicPlayer";
+import { MusicSong, Sounds } from "./Components/MusicSong";
 
 type PlayListProps = NativeStackScreenProps<AppStackParams, 'PlayListScreen'>;
 
@@ -12,6 +14,7 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
 
     const [playList, setPlayList] = useState<PlayListTypes[]>([]);
     const [uiPlayList, setUiPlayList] = useState<PlayListTypes[]>([]);
+    const [musics, setMusics] = useState<Sounds[]>([]);
 
     const goBack = () => {
         navigation.goBack();
@@ -28,15 +31,29 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
             setUiPlayList(uiPlayListMusic);
         });
 
+
     }, [route.params.title, route.params.index]);
 
     useEffect(() => {
+
         if (uiPlayList.length > 0) {
+            console.log('Index da playlist:', route.params.index);
+            const musicsSongs = uiPlayList[route.params.index % uiPlayList.length].sounds;
+            setMusics(musicsSongs);
+            
             console.log('Filtered Playlist:', uiPlayList);
-            console.log('Route params title:', uiPlayList[route.params.index % uiPlayList.length].title);
-            console.log('Item index:', route.params.index);
+            console.log('Songs', musics);
         }
-    }, [uiPlayList, route.params.index]);
+    }, [uiPlayList, route.params.index, musics]);
+
+    const renderMusics: ListRenderItem<any> = ({item, index}) => {
+
+        console.log(item);
+        
+        return (
+            <MusicSong id={item.id} title={item.title} artist={item.artist}/>
+        )
+    } 
 
     return (
         <ScrollView style={{ backgroundColor: 'black' }}>
@@ -77,6 +94,14 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
             >
                 {uiPlayList[route.params.index % uiPlayList.length]?.artists}
             </Text>
+
+           <FlatList 
+                keyExtractor={(item) => item.id}
+                data={musics}
+                renderItem={renderMusics}
+            /> 
+
+            {/* <MusicPlayer /> */}
         </ScrollView>
     );
 };

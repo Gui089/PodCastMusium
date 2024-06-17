@@ -8,7 +8,7 @@ export const MusicPlayer = () => {
 
     const MusicRef = useRef<VideoRef>(null);
     const background = require('../../../../assets/sounds/oceano_djavan.m4a');
-    const [stateMusic, setStateMusic] = useState(false);
+    const [stateMusic, setStateMusic] = useState(true);
     const PauseAndPlay = () => setStateMusic(prev => !prev);
 
     return (
@@ -24,6 +24,7 @@ export const MusicPlayer = () => {
                 controls
                 paused={stateMusic}
             />
+            <Button title="Play" onPress={PauseAndPlay} />
         </Box>
     )
 
