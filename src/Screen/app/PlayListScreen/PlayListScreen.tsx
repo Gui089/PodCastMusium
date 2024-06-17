@@ -51,7 +51,7 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
         console.log(item);
         
         return (
-            <MusicSong id={item.id} title={item.title} artist={item.artist}/>
+            <MusicSong id={item.id} imageUrl={item.imageUrl} title={item.title} artist={item.artist}/>
         )
     } 
 
@@ -89,7 +89,8 @@ export const PlayListScreen = ({ navigation, route }: PlayListProps) => {
                     fontSize:13,
                     color:'gray',
                     fontWeight:'bold',
-                    alignSelf:'center'
+                    alignSelf:'center',
+                    marginBottom:31
                 }}
             >
                 {uiPlayList[route.params.index % uiPlayList.length]?.artists}
