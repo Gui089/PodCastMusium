@@ -45,6 +45,13 @@ export const PlayListData: PlayListTypes[] = [
                 artist: 'Caeteno Veloso',
                 imageUrl: 'https://i.ytimg.com/vi/6YudHd6kTZ8/maxresdefault.jpg',
                 soundUrl:'../../assets/sounds/CaetanoVeloso_Sozinho.mp3'
+            },
+            {
+                id:'3',
+                title:'Deixe_me_ir',
+                artist:'1 kilo',
+                imageUrl:'https://i.musiocdn.com/MrLE7NNmejxHvvclr2U384bgVb4=/300x300/smart/artist/6941/album/17208/1kilo-acustico.jpg',
+                soundUrl:'../../assets/sounds/DeixeMeIr.mp3'
             }
         ]
     },
